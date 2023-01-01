@@ -1,4 +1,3 @@
-
 package app;
 
 import java.awt.AWTException;
@@ -11,18 +10,12 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class App extends javax.swing.JFrame {
 
     public App() {
         initComponents();
-         jPanel1 = new javax.swing.JPanel();
-
-    jPanel1.setBackground(new java.awt.Color(0, 0, 255));
-    jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -115,61 +108,51 @@ public class App extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            
-//             public static void main(String[] args) throws AWTException, InterruptedException {
         Robot robot = null;
         try {
             robot = new Robot();
         } catch (AWTException ex) {
             Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Scanner scanner = new Scanner(System.in);
-       //  System.out.println("Enter how many times you want to write this:");
-        int x=Integer.valueOf(jTextField1.getText());
+  
+        int x = Integer.valueOf(jTextField1.getText());
         System.out.println("Enter text:"); //kakvo iskam da vyveda(spamq)
         String Text = jTextField2.getText();         //kolko pyti iskam da go napisha
-        
         StringSelection stringSelection = new StringSelection(Text);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(stringSelection,null);
-       
+        clipboard.setContents(stringSelection, null);
+
         System.out.println("The spamming will start in 2 seconds");
         try {
             Thread.sleep(2000);
         } catch (InterruptedException ex) {
             Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
         }
-        for (int i = 0; i <x; i++) {
-        
+        for (int i = 0; i < x; i++) {
             try {
                 Thread.sleep(1000); //prez kolko sekundi iskam da go napisha
             } catch (InterruptedException ex) {
                 Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
             }
- 
-        robot.keyPress(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_CONTROL);
-        robot.keyRelease(KeyEvent.VK_V);
-        
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
-        
+
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+            robot.keyRelease(KeyEvent.VK_V);
+
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
-    public static void main(String args[]) throws AWTException, InterruptedException{
-       
-      
+    public static void main(String args[]) throws AWTException, InterruptedException {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new App().setVisible(true);
             }
         });
     }
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
